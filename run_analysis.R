@@ -20,12 +20,12 @@ library("dplyr")
 
      # c. merge and append labels the train and test data; subject id's are unique between the two sets and total 30 for the 2 sets
      merged <- rbind(traindata2, testdata2) #dim(10299x563)
-     features2 <- rbind(c(563, "subjects"), c(562, "activities"), features)
+     features2 <- rbind(c(563, "subjects"), c(562, "activity_id"), features)
      names(merged) <- features2$V2
 
 ## 2. Extracts only the measurements on the mean and standard deviation for each measurement.  
      merged2 <- merged[ !duplicated(names(merged)) ]
-     mergedsel <- select(merged2, matches("subjects|activities|mean|std"))
+     mergedsel <- select(merged2, matches("subjects|activity_id|mean|std"))
      
 ## 3. Uses descriptive activity names to name the activities in the data set
      names(activitieslabels) <- c("activity_id", "activity")     
@@ -33,7 +33,7 @@ library("dplyr")
 ## 4. Appropriately labels the data set with descriptive variable names. 
      
      mergedselfin <- merge(mergedsel, activitieslabels, sort = FALSE) %>%
-          select(activity, subjects, activity_id, everything()) %>%
+          select(activity, subjects, everything()) %>%
                select( -activity_id) %>%
                     arrange(activity, subjects)
      
@@ -45,4 +45,4 @@ library("dplyr")
 ## 6. Write the data frame to a file
      
      write.csv(summarized, "tidymeans.csv")
-     
+     write.table(summarized, "tidymeans.txt")
