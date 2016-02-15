@@ -45,4 +45,4 @@ library("dplyr")
 ## 6. Write the data frame to a file
      
      write.csv(summarized, "tidymeans.csv")
-     write.table(summarized, "tidymeans.txt")
+     write.table(summarized, "tidymeans.txt", row.name=FALSE)
