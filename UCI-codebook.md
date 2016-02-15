@@ -11,7 +11,7 @@ The following variables are included in the set:
 
 *subject: the id that identifies the specific person that performed the activities described in the column 'activity'
 
-*<features>: there are the mean of experiments that representing the mean and the std of several features derived from the accelerometer and gyroscope that were used in the experiments, 3-axial linear acceleration and 3-axial angular velocity. See also feautures_info.txt from the original files.
+*list of features: tBodyAcc-mean()-X, tBodyAcc-mean()-Y, tBodyAcc-mean()-Z etcetera. These are the mean of experiments that representing the mean and the std of several features derived from the accelerometer and gyroscope that were used in the experiments, 3-axial linear acceleration and 3-axial angular velocity. See also feautures_info.txt from the original files.
 
 
 #Transformations
